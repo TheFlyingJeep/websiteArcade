@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>hangman</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <link rel="stylesheet" href="styles.CSS">
+    </head>
+
+    <body>
+        <header class="head">
+            <button id="restartbutton" onclick="startGame()">Restart</button>
+            Welcome to hangman! Try and guess the word before you get hung!
+            <input type="text" id="guessbox">
+            <button id="guessButton" onclick="getGuess()">Guess</button>
+        </header>
+        <canvas id="screen"></canvas>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
