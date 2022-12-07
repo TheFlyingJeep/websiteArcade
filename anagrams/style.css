@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(168, 168, 255);
+  }
+  
+  h1 {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  p {
+    color: black; 
+    font-family: Georgia;
+    font-size: 15px;
+  
+  }
+  tr{
+    color: black;
+  
+  }
+  h2{
+    color: black; 
+  }
+  table{
+    color: green;
+    border-style: solid; 
+    border-radius: 10px
+  }
