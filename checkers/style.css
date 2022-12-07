@@ -1,0 +1,13 @@
+.row {
+    line-height: 0;
+}
+.square {
+    height: min(12vw,12vh);
+    width: min(12vw,12vh);
+    display: inline-block;
+    background-color: grey;
+}
+.row:nth-child(2n+1) .square:nth-child(2n), 
+.row:nth-child(2n) .square:nth-child(2n+1) {
+    background-color: black;
+}
