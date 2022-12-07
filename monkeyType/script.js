@@ -34,13 +34,7 @@ class Game{
         /*
         go through words_alpha and randomly choose 1000 words
         */
-
-    }
-
-    updateWordCount(){
-        /*
-        updates total, right, wrong wordsTyped
-        */
+        return this.prompt;
     }
 
     compareText(text) {
