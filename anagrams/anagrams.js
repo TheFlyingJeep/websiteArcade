@@ -1,4 +1,4 @@
-var alphabet = "tentententententententenaeiougftsd";
+var alphabet = "aeioumnlshtpdf";
 var letters = ""; 
 const used = [];
 let filetext = "";
@@ -7,6 +7,15 @@ var gameOver = false;
 var timer;
 var highScore = -1; 
 var score = 0; 
+
+function setup(){
+    document.getElementById("b1").innerHTML = letters.substring(0,1); 
+    document.getElementById("b2").innerHTML = letters.substring(2,3); 
+    document.getElementById("b3").innerHTML = letters.substring(4,5); 
+    document.getElementById("b4").innerHTML = letters.substring(6,7); 
+    document.getElementById("b5").innerHTML = letters.substring(8,9); 
+    document.getElementById("b6").innerHTML = letters.substring(10,11); 
+}
 
 function calculate(word){
     var pts = word.length*100; 
@@ -53,7 +62,7 @@ function start(){
 
 
 
-//readTextFile(); 
+readTextFile(); 
 function readTextFile() {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", "https://flippinnublet.com/arcadelobby/words_alpha.txt", false);
@@ -66,8 +75,11 @@ function readTextFile() {
     }
     rawFile.send(null);
 }
-//console.log(filetext.substring(1,10));
-const arr = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "a", "e"];  
+
+const temp = filetext.split("\n")
+const arr = temp.map(element.trim())
+console.log(arr[90989]);
+
 
 function fill(id){
     console.log(id);
@@ -77,7 +89,16 @@ function fill(id){
 
 function guess(){
     console.log("guess ran");
-    var word = document.getElementById("text").value
+    var word = String(document.getElementById("text").value)
+  
+    console.log(word)
+    if(arr[90989].trim() == word.trim()){
+        console.log("true yay");
+    }
+    else{
+        console.log("false sorry")
+    }
+
     word = word.trim(); 
     console.log(word);
     document.getElementById("text").value = ""; 
@@ -113,11 +134,4 @@ start();
 createLetters(); 
 setup(); 
 
-function setup(){
-    document.getElementById("b1").innerHTML = letters.substring(0,1); 
-    document.getElementById("b2").innerHTML = letters.substring(2,3); 
-    document.getElementById("b3").innerHTML = letters.substring(4,5); 
-    document.getElementById("b4").innerHTML = letters.substring(6,7); 
-    document.getElementById("b5").innerHTML = letters.substring(8,9); 
-    document.getElementById("b6").innerHTML = letters.substring(10,11); 
-}
+

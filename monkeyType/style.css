@@ -6,3 +6,12 @@ h1{
     color: #e6e7e8;
     text-align: center;
 }
+
+p{
+    color: lightgray;
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
