@@ -5,11 +5,16 @@ body{
 h1{
     color: #e6e7e8;
     text-align: center;
+    font-family:'Courier New';
+    font-size: xx-large;
 }
 
 p{
     color: lightgray;
     text-align: center;
+    font-family:'Courier New';
+    font-size: large;
+    font-weight: 600;
 }
 
 div {

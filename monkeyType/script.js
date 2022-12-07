@@ -2,6 +2,11 @@ function waitForDelay(delay) {
     return new Promise(resolve => setTimeout(resolve, delay));
 }
 
+function generatePrompt(){
+    var game = new Game();
+    game.generatePrompt();
+}
+
 class Game{
     constructor(){
         this.wpm = 0;
@@ -34,7 +39,8 @@ class Game{
         /*
         go through words_alpha and randomly choose 1000 words
         */
-        return this.prompt;
+        this.prompt = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+        document.getElementById("promptArea").innerHTML = this.prompt;
     }
 
     compareText(text) {
