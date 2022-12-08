@@ -5,9 +5,33 @@
     height: min(12vw,12vh);
     width: min(12vw,12vh);
     display: inline-block;
-    background-color: grey;
+    background-color:antiquewhite;
 }
 .row:nth-child(2n+1) .square:nth-child(2n), 
 .row:nth-child(2n) .square:nth-child(2n+1) {
-    background-color: black;
+    background-color: sienna;
+}
+.piece {
+    height: min(8vw,8vh);
+    width: min(8vw,8vh);
+    margin: min(1vw,1vh);
+    border-radius: 50%;
+    background-color: red;
+    border: min(1vw,1vh) double darkred;
+    box-shadow: min(.5vw,.5vh) min(.5vw,.5vh) min(1vw, 1vw) brown;
+}
+.piece.red {
+    background-color: red;
+    border-color: rgb(210, 1, 1);
+}
+.piece.black{
+    background-color:black;
+    border-color:#333;
+    box-shadow: min(.5vw,.5vh) min(.5vw,.5vh) min(1vw, 1vw) black;
+}
+.hidden {
+    display: none;
+}
+.highlight {
+    background-color: yellow !important;
 }
