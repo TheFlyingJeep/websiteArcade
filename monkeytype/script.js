@@ -15,11 +15,13 @@ function readTextFile() {
         if (rawFile.readyState === 4) {
             if (rawFile.status === 200 || rawFile.status == 0) {
                 filetext = rawFile.responseText.split("\n");
+                console.log(rawFile.responseText);
             }
         }
     }
     rawFile.send(null);
 }
+//readTextFile();
 
 class Game{
     constructor(){
@@ -38,7 +40,7 @@ class Game{
         words end when " " appears
         */
        this.wpm = (this.totalWordsTyped / this.totalTime) * 60;
-       return this.wpm;
+       document.getElementById("wpmDisplay").innerHTML = this.wpm + " wpm";
     }
 
     calculateAccuracy(){
@@ -62,10 +64,6 @@ class Game{
         document.getElementById("promptArea").innerHTML = this.prompt;
     }
 
-    resetPrompt(){
-        this.prompt = "";
-    }
-
     compareText(text) {
         var textArr = text.split(" ");
         var promptArr = prompt.split(" ");
@@ -84,7 +82,6 @@ class Game{
 
 async function startGame() {
     var game = new Game();
-    readTextFile();
     game.generatePrompt();
     var time = 0;
     while (time < 30) {
