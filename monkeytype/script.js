@@ -7,6 +7,20 @@ function generatePrompt(){
     game.generatePrompt();
 }
 
+let filetext = [];
+function readTextFile() {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", "https://flippinnublet.com/arcadelobby/words_alpha.txt", false);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4) {
+            if (rawFile.status === 200 || rawFile.status == 0) {
+                filetext = rawFile.responseText.split("\n");
+            }
+        }
+    }
+    rawFile.send(null);
+}
+
 class Game{
     constructor(){
         this.wpm = 0;
@@ -39,8 +53,17 @@ class Game{
         /*
         go through words_alpha and randomly choose 1000 words
         */
-        this.prompt = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
+        for(var i = 0; i < 1000; i++){
+            this.prompt += filetext[Math.floor(Math.random()*filetext.length)] + " ";
+            if(i % 10 == 0){
+                this.prompt += "\n";
+            }
+        }
         document.getElementById("promptArea").innerHTML = this.prompt;
+    }
+
+    resetPrompt(){
+        this.prompt = "";
     }
 
     compareText(text) {
@@ -61,6 +84,7 @@ class Game{
 
 async function startGame() {
     var game = new Game();
+    readTextFile();
     game.generatePrompt();
     var time = 0;
     while (time < 30) {

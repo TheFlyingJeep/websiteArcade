@@ -76,8 +76,7 @@ function readTextFile() {
     rawFile.send(null);
 }
 
-const temp = filetext.split("\n")
-const arr = temp.map(element.trim())
+const arr = filetext.split("\n")
 console.log(arr[90989]);
 
 

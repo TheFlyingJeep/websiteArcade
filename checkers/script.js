@@ -17,7 +17,8 @@ function move(from, to, color) {
     $("#"+from).children(".piece")[0].classList.add("hidden")
     $("#"+from).children(".piece")[0].classList.remove(selectedColor)
     $("#"+to).children(".piece")[0].classList.remove("hidden")
-    $("#"+to).children(".piece")[0].classList.add(selectedColor)    
+    $("#"+to).children(".piece")[0].classList.add(selectedColor)  
+    selectedPiece = -1  
 }
 function highlight() {
     //convoluted way of removing highlight on previous square
