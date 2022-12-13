@@ -8,18 +8,28 @@
     </head>
     <body>
         <h1 id="timer">1:00</h1>
-        <textarea  class="textinput" id="text" cols="40" rows="2"></textarea>
-        <button id="enter" onclick='guess()'>Enter</button>
-        <br><button id="restart" onclick='restart()'>Restart</button>
-        <p id="highScore">High Score: </p> <br><br>
+        <center>
+            <textarea readonly class="textinput" id="text" cols="40" rows="5"></textarea><br><br>
+            <button id="enter" onclick='guess()'>Enter</button>&nbsp
+            <button id="restart" onclick='restart()'>New Game</button>
+            <h3 id="highScore">High Score: </h3> <br><br>
+        </center>
+        
+       
+      
+      
+        <center>
         <button id="b1" onclick='fill("b1")'></button>
         <button id="b2" onclick='fill("b2")'></button>
         <button id="b3" onclick='fill("b3")'></button>
         <button id="b4" onclick='fill("b4")'></button>
         <button id="b5" onclick='fill("b5")'></button>
         <button id="b6" onclick='fill("b6")'></button><br><br>
-        <h2>Words:</h2>  
+        <u><h2>Words:</h2></u>
         <p id="guessed"></p>
+        </center>
+
+        
     </body>
         <script src="anagrams.js"></script>
         <!--<script type="module" src="anagrams.js"></script>-->

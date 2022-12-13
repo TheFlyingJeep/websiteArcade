@@ -1,4 +1,4 @@
-var alphabet = "aeioumnlshtpdf";
+var alphabet = "aeioumnlshtpdf"; 
 var letters = ""; 
 const used = [];
 let filetext = "";
@@ -7,7 +7,7 @@ var gameOver = false;
 var timer;
 var highScore = -1; 
 var score = 0; 
-
+console.log("updated")
 function setup(){
     document.getElementById("b1").innerHTML = letters.substring(0,1); 
     document.getElementById("b2").innerHTML = letters.substring(2,3); 
@@ -29,6 +29,7 @@ function restart(){
     gameOver = false; 
     used.length = 0;  
     document.getElementById("guessed").innerHTML = ""; 
+    document.getElementById("text").value = ""; 
     createLetters();
     setup(); 
 }
@@ -76,8 +77,9 @@ function readTextFile() {
     rawFile.send(null);
 }
 
-const arr = filetext.split("\n")
-console.log(arr[90989]);
+var arr = filetext.split("\n")
+arr = arr.map(s => s.trim());
+//console.log(arr[90989]);
 
 
 function fill(id){
@@ -89,19 +91,9 @@ function fill(id){
 function guess(){
     console.log("guess ran");
     var word = String(document.getElementById("text").value)
-  
-    console.log(word)
-    if(arr[90989].trim() == word.trim()){
-        console.log("true yay");
-    }
-    else{
-        console.log("false sorry")
-    }
-
     word = word.trim(); 
-    console.log(word);
     document.getElementById("text").value = ""; 
-    if(arr.includes(word) && !used.includes(word) && !gameOver){
+    if(arr.includes(word) && !used.includes(word) && !gameOver && word.length > 1){
         used.push(word)
         document.getElementById("guessed").innerHTML += word + "      " + calculate(word) + "pts" + "<br>"
         setup(); 
