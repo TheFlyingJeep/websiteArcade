@@ -10,11 +10,25 @@ document.getElementById("textInput").addEventListener("keydown", function(event)
 var userInput;
 var guessCount = 1; 
 var guessed = new Array();
+var letter = /^[a-zA-Z]+$/;
 function wordleRun(){
     userInput = document.getElementById("textInput").value;
-    guessed.push(userInput);
     console.log(guessed);
-    inputWord();
+    userInput = userInput.toUpperCase();
+    
+    if (!alphaCheck(userInput)) {
+        alert("Word has invalid charaters!");
+    } else if(guessed.includes(userInput)) {
+        alert("Word already used!");
+    } else if (userInput.length < 5) {
+        alert("Word is too short!");
+    } else if (userInput.length > 5) {
+        alert("Word is too long!");
+    } else {
+        guessed.push(userInput);
+        inputWord();
+    }
+
 
 
     // document.getElementById("w1l1").innerHTML = wordSplit[0];
@@ -26,9 +40,18 @@ function wordleRun(){
     // ocument.getElementById("value").innerHTML = userInput;
 }
 
+function alphaCheck(inputtxt) { 
+    var letters = /^[a-zA-Z]+$/;
+    if (letters.test(inputtxt)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 function inputWord() {
+
     var wordSplit = userInput.split("");
-    
+
     if (guessCount == 1) {
         for (i = 0; i < 5; i++) {
             document.getElementById(i).innerHTML = wordSplit[i];
@@ -64,6 +87,7 @@ function inputWord() {
 
 
 }
+
 
 
 
