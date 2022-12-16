@@ -1,3 +1,5 @@
+
+function ultimateRun(){
 var alphabet = "aeioumnlshtpdf"; 
 var letters = ""; 
 const used = [];
@@ -90,10 +92,11 @@ function fill(id){
 
 function guess(){
     console.log("guess ran");
-    var word = String(document.getElementById("text").value)
+    var word = String(document.getElementById("text").innerHTML);
     word = word.trim(); 
     document.getElementById("text").value = ""; 
-    if(arr.includes(word) && !used.includes(word) && !gameOver && word.length > 1){
+    //console.log("Word: " + word + ", in arr: " + arr.includes(word));
+    if(arr.includes(word) && !used.includes(word) && !gameOver && word.length > 2){
         used.push(word)
         document.getElementById("guessed").innerHTML += word + "      " + calculate(word) + "pts" + "<br>"
         setup(); 
@@ -124,5 +127,6 @@ function createLetters(){
 start(); 
 createLetters(); 
 setup(); 
+}
 
 

@@ -61,3 +61,11 @@ body {
     -webkit-text-stroke: 1px black;
     font-size: 30px
   }
+  div {
+    display: block;
+    border: 5px outset rgb(111, 111, 214);
+    background-color: rgb(111, 111, 214);
+    text-align: center;
+    rows: 40px
+  }
+ 

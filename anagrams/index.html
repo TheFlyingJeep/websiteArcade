@@ -9,10 +9,11 @@
     <body>
         <h1 id="timer">1:00</h1>
         <center>
-            <textarea readonly class="textinput" id="text" cols="40" rows="5"></textarea><br><br>
-            <button id="enter" onclick='guess()'>Enter</button>&nbsp
+            <textarea readonly class="textinput" id="text" cols="6" rows="1" style="font-size: 44pt" style="background-color: red"></textarea><br><br>
+            <button id="enter" onclick='guess()'>Enter</button>&nbsp&nbsp
             <button id="restart" onclick='restart()'>New Game</button>
             <h3 id="highScore">High Score: </h3> <br><br>
+            <div id="directions" cols="10" rows="50"></div> 
         </center>
         
        
@@ -26,7 +27,7 @@
         <button id="b5" onclick='fill("b5")'></button>
         <button id="b6" onclick='fill("b6")'></button><br><br>
         <u><h2>Words:</h2></u>
-        <p id="guessed"></p>
+        <h2 id="guessed"></h2>
         </center>
 
         
