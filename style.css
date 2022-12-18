@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:300,400,600,700,800&display=swap");
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Light.otf') format('opentype'), url('../fonts/Gilroy-Light.woff2') format('woff2');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-ExtraBold.otf') format('opentype'), url('../fonts/Gilroy-ExtraBold.woff2') format('woff2');
+    font-weight: bold;
+}
+
+/* colors: f72585-7209b7-5011E4-4361ee-4cc9f0 */
+
+body {
+    background-color: black;
+}
+
+h1, h2 {
+    color: #7209B7;
+    font-family: Consolas, monospace;
+    font-weight: bold;
+    font-size: 60px;
+}
+h3 {
+    font-family: Consolas, monospace;
+}
+h4 {
+    font-family: Gilroy, Inter, serif;
+    font-weight: bold;
+    color: black;
+    display: inline;
+}
+@media  only screen and (min-width: 1100px) {
+    .container {
+        padding: 0 calc(max(20vw, 30px));
+    }
+}
+
+.m-0 {
+    margin: 0
+}
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-40 {
+    margin-top: 40px;
+}
+.mt-50 {
+    margin-top: 50px;
+}
+
+.text-black {
+    color: black;
+}
+.spacer {
+    height: 50vh;
+    width: 50%;
+}
+
+/* pictures and boxes */
+
+.imgcontainer {
+    position: relative;
+    height: 80vh;
+    display: inline-block;
+}
+.bg h4 {
+    position: absolute;
+    height: 70vh;
+    width: 56vh;
+    padding: 1vh;
+    top: calc(max(3vw, 30px));
+    left: calc(max(3vw, 35px));
+    text-align: right;
+    z-index: -9;
+}
+.games-img {
+    margin-right: calc(max(3vw, 30px));
+    height: 70vh;
+    width: 56vh;
+    object-fit: cover;
+    object-position: top;
+}
+a {
+    padding: 12px 20px;
+    font-family: Gilroy, Inter, serif;
+    letter-spacing: 2px;
+    font-weight: bold;
+    background-color: black;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 8px 0px;
+}
+a:hover {
+    color: black!important;
+}
+.anagrams h4, .anagrams a:hover {
+    background-color: #9a06fd;
+}
+.anagrams h3 {
+    color: #9a06fd;
+}
+.anagrams a {
+    color: #9a06fd;
+    border: #9a06fd solid 2px;
+}
+.minesweeper h4, .checkers h4, .minesweeper a:hover, .checkers a:hover  {
+    background-color: #F72585;
+}
+.minesweeper h3, .checkers h3 {
+    color: #F72585;
+}
+.minesweeper a, .checkers a {
+    color: #F72585;
+    border: #F72585 solid 2px;
+}
+.hangman h4, .hangman a:hover {
+    background-color: #4CC9F0;
+}
+.hangman h3 {
+    color: #4cc9f0;
+}
+.hangman a {
+    color: #4cc9f0;
+    border: #4cc9f0 solid 2px;
+}
+.monkeytype h4, .monkeytype a:hover {
+    background-color: #4361EE;
+}
+.monkeytype h3 {
+    color: #4361EE;
+}
+.monkeytype a {
+    color: #4361EE;
+    border: #4361EE solid 2px;
+}
+.wordle h4, .wordle a:hover {
+    background-color: #4c00ff;
+}
+.wordle h3 {
+    color: #4c00ff;
+}
+.wordle a {
+    color: #4c00ff;
+    border: #4c00ff solid 2px;
+}
+
+/* animation */
+@keyframes dash {
+from {
+    stroke-dashoffset: 1;
+}
+to {
+    stroke-dashoffset: 0;
+}
+}
+@-webkit-keyframes dash {
+from {
+    stroke-dashoffset: 1;
+}
+to {
+    stroke-dashoffset: 0;
+}
+}
+.dash {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: dash 5.5s linear alternate forwards 1;
+    -webkit-animation: dash 5.5s linear alternate forwards 1;
+}
+@keyframes fill {
+    from {
+        fill: none;
+    }
+    to {
+        fill: #7209B7;
+    }
+}
+@-webkit-keyframes dash {
+    from {
+        stroke-dashoffset: 1;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+.fill {
+    animation: dash 5.5s linear alternate forwards 1;
+    -webkit-animation: dash 5.5s linear alternate forwards 1;
+}
