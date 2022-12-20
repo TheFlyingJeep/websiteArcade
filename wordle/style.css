@@ -11,9 +11,14 @@ h1 {
 table {
     margin-left: auto;
     margin-right: auto;
+
 }
 
-tr, th{
+table, tr, th{
     font-size: 150%;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif';
+}
+
+th {
+    font-family: 'Lucida Sans';
+
 }
