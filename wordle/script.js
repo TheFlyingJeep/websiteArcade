@@ -16,6 +16,7 @@ var userInput;
 var guessCount = 1; 
 var guessed = new Array();
 var letter = /^[a-zA-Z]+$/;
+var corrLetters = [];
 
  
 
@@ -24,7 +25,6 @@ console.log(chosenWord);
 
 var wordGuessed = false; 
 function wordleRun(){
-    
     userInput = document.getElementById("textInput").value;
     console.log(guessed);
     userInput = userInput.toUpperCase();
@@ -65,6 +65,7 @@ function alphaCheck(inputtxt) {
 
 function inputWord() {
     var wordSplit = userInput.split("");
+    corrLetters = [];
     if (guessCount == 1) {
         for (i = 0; i < 5; i++) {
             document.getElementById(i).innerHTML = " " + wordSplit[i] + " ";
@@ -139,12 +140,18 @@ function inputWord() {
     function wordCheck(i, n) {
         var wordSplit = userInput.split("");
         var answSplit = chosenWord.split("");
+        
         if (wordSplit[i] == answSplit[i]) {
             document.getElementById(i+(5*n)).style.backgroundColor ="yellowgreen";
-        } else if (answSplit.includes(wordSplit[i])) {
-            document.getElementById(i+(5*n)).style.backgroundColor ="yellow";
-        } else {
+            corrLetters.push(wordSplit[i]);
+        } else if (!(answSplit.includes(wordSplit[i]))) {
             document.getElementById(i+(5*n)).style.backgroundColor ="white";
+        }  else {
+            if (!corrLetters.includes(wordSplit[i])) {
+                document.getElementById(i+(5*n)).style.backgroundColor ="yellow";
+            } else {
+                document.getElementById(i+(5*n)).style.backgroundColor ="white";
+            }
         }
 
 
@@ -152,5 +159,13 @@ function inputWord() {
 
 
 
+    
 
 
+
+
+
+
+
+
+ 
