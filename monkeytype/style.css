@@ -1,22 +1,59 @@
 body{
-    background-color: #2d323d;
+    background-color: #28282b;
 }
 
 h1{
     color: #e6e7e8;
     text-align: center;
     font-family:'Courier New';
-    font-size: xx-large;
+    font-size: 36px;
 }
 
 p{
     color: lightgray;
     text-align: center;
     font-family:'Courier New';
-    font-size: large;
+    font-size: 18px;
     font-weight: 600;
 }
 
-div {
+#prompt {
     text-align: center;
+}
+
+#stats {
+    text-align: center;
+}
+
+#userInput {
+    text-align: center;
+}
+
+#textbox {
+    overflow-x: hidden;
+}
+
+.button {
+    font-family: 'Courier New';
+    font-weight: 600;
+    color: #28282b;
+    background-color: lightgray;
+    border: #28282b;
+    border-radius: 8px;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.backButton {
+    font-family: 'Courier New';
+    font-weight: 600;
+    color: lightgray;
+    background-color: #28282b;
+    border: #28282b;
+    padding: 12px 10px;
+    text-align: left;
+    display: inline-block;
+    font-size: 16px;
 }

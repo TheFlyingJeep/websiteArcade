@@ -4,19 +4,17 @@ html, body {
     overflow: hidden;
 }
 
-.head {
-    height: 50px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width: 100%;
-    background-color: gray;
-    text-align: center;
-    font-size: xx-large;
+#screen {
+    z-index: 1;
 }
 
-#restartbutton {
-    width:100px;
+#guessbox {
+    position: auto;
+    z-index: 2;
+    margin-top: 10px;
+    margin-right: 90%;
 }
 
-#guessbutton {
-    width:100px;
+#guessbox:hover {
+    cursor: crosshair;
 }

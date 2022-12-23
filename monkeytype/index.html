@@ -7,17 +7,29 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <button class="backButton" id="backBut" onclick="goHome()">&#60 back home</button>
     <h1>OOD TYPING TEST</h1>
 
-    <p id="promptArea">waiting for prompt to load...</p>
-    <p id="timeDisplay">time remaining<p>
-    <p id="wpmDisplay"><p>
-    <p id="accuracyDisplay"><p>
-    <div>
-    <textarea class="textinput" id="textbox" cols="100" rows="5"></textarea>
-    <br>
-    <button class="button" onclick="startGame()">start</button>
-    </div>                                                                                                                                                                                 
+    <div id="prompt"> 
+      <p id="promptArea">Typing test!
+        <br><br>The rules are just like all other typing tests. You have 30 seconds to type as many words as possible.
+        <br>Click on the start button below to generate a prompt and to start the 30 second timer.
+        <br><br>Good luck!</p>
+    </div>
+
+    <div id="stats">
+      <p id="timeDisplay"><p>
+      <p id="wpmDisplay"><p>
+      <p id="accuracyDisplay"><p>
+    </div>
+
+    <div id="userInput">
+      <textarea class="textinput" id="textbox" cols="100" rows="5"></textarea>
+      <br>
+      <br>
+      <button class="button" id="startRestartBut" onclick="startGame()">start</button>  
+    </div>
+                                                                                                                                                                                
     <script src="script.js"></script>
   </body>
 </html>

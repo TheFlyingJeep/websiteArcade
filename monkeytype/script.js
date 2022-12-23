@@ -2,11 +2,6 @@ function waitForDelay(delay) {
     return new Promise(resolve => setTimeout(resolve, delay));
 }
 
-function generatePrompt(){
-    var game = new Game();
-    game.generatePrompt();
-}
-
 let filetext = [];
 function readTextFile() {
     var rawFile = new XMLHttpRequest();
@@ -46,14 +41,17 @@ class Game{
         /*
         # words right / total number of words typed
         */
-       this.accuracy = (this.rightWordsTyped / this.totalWordsTyped) * 100;
-       document.getElementById("accuracyDisplay").innerHTML = this.accuracy + "% accuracy";
+        if(this.totalWordsTyped != 0){
+            this.accuracy = Math.round((this.rightWordsTyped / this.totalWordsTyped) * 100);
+        }
+        document.getElementById("accuracyDisplay").innerHTML = this.accuracy + "% accuracy";
     }
 
     generatePrompt(){
         /*
         go through words_alpha and randomly choose 1000 words
         */
+       this.prompt = "";
         for(var i = 0; i < 100; i++){
             this.prompt += filetext[Math.floor(Math.random()*filetext.length)] + " ";
             if(i % 10 == 0){
@@ -67,14 +65,20 @@ class Game{
         var textArr = text.toString().split(" ");
         var promptArr = this.prompt.toString().split(" ");
 
-        console.log("Text: " + textArr[0].toString().toLowerCase());
-        console.log("Prompt: " + promptArr[0].toString().toLowerCase());
+        console.log(textArr);
 
         this.totalWordsTyped = textArr.length;
 
-        for(var i = 0; i < textArr.length; i++){
-            if(promptArr.includes(textArr[i].toString().toLowerCase())) {
-            //if(textArr[i].toString().toLowerCase().trim() == promptArr[i].toString().toLowerCase().trim()){
+        for(var j = 0; j < promptArr.length; j++){
+            if(promptArr[j].includes("\r") && promptArr[j].includes("\n")){
+                promptArr[j] = promptArr[j].substring(1, promptArr[j].length-1);
+            } else {
+                promptArr[j] = promptArr[j].substring(0, promptArr[j].length-1);
+            }
+        }
+
+        for(var i = 0; i < textArr.length; i++){           
+            if(promptArr.includes(textArr[i].toString().toLowerCase().trim())) {
                 this.rightWordsTyped++;
             } else {
                 this.wrongWordsTyped++;
@@ -84,21 +88,52 @@ class Game{
         console.log("total words: " + this.totalWordsTyped);
         console.log("# right words: " + this.rightWordsTyped);
         console.log("# wrong words: " + this.wrongWordsTyped);
-    }
+    }   
+}
+
+var g = new Game();
+var time = 0;
+
+function reset(){
+    document.getElementById("wpmDisplay").innerHTML = "";
+    document.getElementById("accuracyDisplay").innerHTML = "";
+    startGame();
+    //document.getElementById("startRestartBut").setAttribute( "onClick", "javascript: startGame();" );
+}
+
+function restartMidGame(){
+    document.getElementById("timeDisplay").innerHTML = 30;
+    time = 0; 
+    document.getElementById("textbox").value = "";
+    g.generatePrompt();
+}
+
+function goHome(){
+    window.location.href = "https://flippinnublet.com/arcadelobby/";
 }
 
 async function startGame() {
-    var game = new Game();
-    game.generatePrompt();
-    var time = 0;
-    document.getElementById("timeDisplay").innerHTML = 10-time;
-    while (time < 10) {
+
+    document.getElementById("textbox").value = "";
+    document.getElementById("startRestartBut").innerHTML = "restart";
+
+    g.generatePrompt();
+    document.getElementById("timeDisplay").innerHTML = 30;
+
+    document.getElementById("startRestartBut").setAttribute( "onClick", "javascript: restartMidGame();" );
+    time = 0;
+    while (time < 30) {
         await waitForDelay(1000);
         time++;
-        document.getElementById("timeDisplay").innerHTML = 10-time;
+        console.log(time);
+        document.getElementById("timeDisplay").innerHTML = 30-time;
     }
+
+    document.getElementById("startRestartBut").setAttribute( "onClick", "javascript: reset();" );
     var text = document.getElementById("textbox").value;
-    game.compareText(text);
-    game.calculateWPM();
-    game.calculateAccuracy();
+    if(text != ""){
+        g.compareText(text);
+    }
+    g.calculateWPM();
+    g.calculateAccuracy();
 }

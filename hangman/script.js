@@ -2,46 +2,11 @@ let canvas = document.getElementById("screen");
 let ctx = canvas.getContext("2d");
 let game = null;
 canvasResize();
-window.onload = startGame;
+window.onload = displayTopText;
 const alpha = "abcdefghijklmnopqrstuvwxyz";
+const text = "Welcome to hangman"
 var isPlaying = false;
-
-document.getElementById("guessbox").addEventListener("keydown", function(event) {
-    if (event.keyCode == 13) {
-        getGuess();
-    }
-}, false);
-
-let filetext = [];
-function readTextFile() {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "https://flippinnublet.com/arcadelobby/words_alpha.txt", false);
-    rawFile.onreadystatechange = function () {
-        if (rawFile.readyState === 4) {
-            if (rawFile.status === 200 || rawFile.status == 0) {
-                filetext = rawFile.responseText.split("\n");
-            }
-        }
-    }
-    rawFile.send(null);
-}
-readTextFile();
-
-function generateWord() {
-    var text = "";
-    while (text.length < 5) {
-        text = filetext[Math.floor(Math.random()*filetext.length)];
-    }
-    return text;
-}
-
-function startGame() {
-    isPlaying = true;
-    var word = generateWord().toLowerCase().trim();
-    game = null;
-    game = new Hangman(word);
-    refreshScreen();
-}
+var textDisplayed = "";
 
 class Hangman {
     constructor(word) {
@@ -140,6 +105,56 @@ class Hangman {
     }
 }
 
+function runDelay(delay) {
+    return new Promise(resolve => setTimeout(resolve, delay));
+}
+
+async function displayTopText() {
+    startGame();
+    for (let i = 0; i < text.length; i++) {
+        textDisplayed += text.substring(i,i+1);
+        refreshScreen();
+        await runDelay(100);
+    }
+}
+
+let filetext = [];
+function readTextFile() {
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", "https://flippinnublet.com/arcadelobby/words_alpha.txt", false);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4) {
+            if (rawFile.status === 200 || rawFile.status == 0) {
+                filetext = rawFile.responseText.split("\n");
+            }
+        }
+    }
+    rawFile.send(null);
+}
+readTextFile();
+
+document.addEventListener("keydown", (event) => {
+    if (event.keyCode == 13) {
+        getGuess();
+    }
+}, false);
+
+function generateWord() {
+    var text = "";
+    while (text.length < 5) {
+        text = filetext[Math.floor(Math.random()*filetext.length)];
+    }
+    return text;
+}
+
+function startGame() {
+    isPlaying = true;
+    var word = generateWord().toLowerCase().trim();
+    game = null;
+    game = new Hangman(word);
+    refreshScreen();
+}
+
 function refreshScreen() {
     ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -147,6 +162,7 @@ function refreshScreen() {
         ctx.fillStyle = "yellow";
         ctx.font = "60px Arial";
         ctx.fillText(game.getListAsString(), 20, canvas.height/1.5);
+        ctx.fillText(textDisplayed, canvas.width/3, 60);
         ctx.strokeStyle = "#F3FF00";
         ctx.lineWidth = 2;
         ctx.lineJoin = "round";

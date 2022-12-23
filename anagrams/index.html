@@ -6,14 +6,16 @@
         <title>Anagrams!</title>
         <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
+        <button class="button" id="home" onclick='goHome()'>Back to homepage</button>
     <body>
         <h1 id="timer">1:00</h1>
         <center>
             <textarea readonly class="textinput" id="text" cols="6" rows="1" style="font-size: 44pt" style="background-color: red"></textarea><br><br>
             <button id="enter" onclick='guess()'>Enter</button>&nbsp&nbsp
             <button id="restart" onclick='restart()'>New Game</button>
-            <h3 id="highScore">High Score: </h3> <br><br>
-            <div id="directions" cols="10" rows="50"></div> 
+            <h3 id="highScore">High Score: </h3> 
+            <button id="start" onclick='master()'>Start!</button><br><br>
+          
         </center>
         
        

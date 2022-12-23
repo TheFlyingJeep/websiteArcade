@@ -68,4 +68,25 @@ body {
     text-align: center;
     rows: 40px
   }
+  #start{
+    background-color: rgb(0, 193, 0);
+    border: 3px, black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+  }
+
+  #home{
+    background-color: rgb(213, 185, 24);
+    border: 2px, black;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+  }
  
