@@ -49,6 +49,9 @@ h4 {
 .mt-50 {
     margin-top: 50px;
 }
+.mb-10 {
+    margin-bottom: 5px;
+}
 
 .text-black {
     color: black;
@@ -116,13 +119,13 @@ a:hover {
     color: #F72585;
     border: #F72585 solid 2px;
 }
-.hangman h4, .hangman a:hover {
+.hangman h4, .hangman a:hover, .tictactoe h4, .tictactoe a:hover {
     background-color: #4CC9F0;
 }
-.hangman h3 {
+.hangman h3, .tictactoe h3 {
     color: #4cc9f0;
 }
-.hangman a {
+.hangman a, .tictactoe a {
     color: #4cc9f0;
     border: #4cc9f0 solid 2px;
 }
