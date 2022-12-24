@@ -10,9 +10,12 @@
         <link rel="stylesheet" href="styles.CSS">
     </head>
     <body>
-        <canvas id="screen">
-            <input label="guess" title="guessbox" type="text" id="guessbox">
-        </canvas>
+        <div id="top">
+            <button id="restart" onclick="startGame()">Restart</button>
+            <span id="maintext"></span>
+            <input label="guess" id="guessbox">
+        </div>
+        <canvas id="screen"></canvas>
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>

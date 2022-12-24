@@ -8,13 +8,19 @@ html, body {
     z-index: 1;
 }
 
-#guessbox {
-    position: auto;
-    z-index: 2;
-    margin-top: 10px;
-    margin-right: 90%;
+#top {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    font-size: xx-large;
+    height:50px;
 }
 
-#guessbox:hover {
-    cursor: crosshair;
+#maintext {
+    color:yellow;
+}
+
+#restart {
+    width:100px;
 }

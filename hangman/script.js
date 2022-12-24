@@ -4,7 +4,7 @@ let game = null;
 canvasResize();
 window.onload = displayTopText;
 const alpha = "abcdefghijklmnopqrstuvwxyz";
-const text = "Welcome to hangman"
+const text = "Welcome to hangman! Guess the word before the man is hung D:";
 var isPlaying = false;
 var textDisplayed = "";
 
@@ -112,10 +112,10 @@ function runDelay(delay) {
 async function displayTopText() {
     startGame();
     for (let i = 0; i < text.length; i++) {
-        textDisplayed += text.substring(i,i+1);
-        refreshScreen();
+        document.getElementById("maintext").innerHTML = text.substring(0,i);
         await runDelay(100);
     }
+    document.getElementById("maintext").innerHTML = text;
 }
 
 let filetext = [];
@@ -162,7 +162,6 @@ function refreshScreen() {
         ctx.fillStyle = "yellow";
         ctx.font = "60px Arial";
         ctx.fillText(game.getListAsString(), 20, canvas.height/1.5);
-        ctx.fillText(textDisplayed, canvas.width/3, 60);
         ctx.strokeStyle = "#F3FF00";
         ctx.lineWidth = 2;
         ctx.lineJoin = "round";
@@ -251,6 +250,7 @@ function getGuess() {
         refreshScreen();
     } else {
         alert("This game is over. You must start a new one");
+        document.getElementById("guessbox").value = "";
     }
 }
 
